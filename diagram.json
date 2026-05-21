@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "author": "Kevin Rogers",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led-strip",
+      "id": "strip1",
+      "top": -103.5,
+      "left": -201.6,
+      "attrs": { "pixels": "10", "pixelShape": "square" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "strip1:VDD", "esp:GND.1", "black", [ "h-28.8", "v326.58" ] ],
+    [ "strip1:VSS", "esp:5V", "red", [ "h-19.2", "v296.98" ] ],
+    [ "esp:11", "strip1:DIN", "green", [ "h-264.28", "v-268.58" ] ]
+  ],
+  "dependencies": {}
+}
