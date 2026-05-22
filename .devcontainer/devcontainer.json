@@ -1,0 +1,14 @@
+{
+  "name": "ProtonPack Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "platformio.platformio-ide",
+        "ms-vscode.cpptools"
+      ]
+    }
+  }
+}
