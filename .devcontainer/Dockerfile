@@ -8,7 +8,7 @@ RUN apt-get update \
         python3-venv \
         # Required by project task requirements.
         jq \
-    && python3 -m pip install --no-cache-dir --break-system-packages platformio \
-    && ln -sf /usr/local/bin/pio /usr/local/bin/platformio \
+   # && python3 -m pip install --no-cache-dir --break-system-packages platformio \
+   # && ln -sf /usr/local/bin/pio /usr/local/bin/platformio \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
