@@ -7,7 +7,9 @@
     "vscode": {
       "extensions": [
         "platformio.platformio-ide",
-        "ms-vscode.cpptools"
+        "ms-vscode.cpptools",
+        "Wokwi.wokwi-vscode",
+        "ms-azuretools.vscode-containers"
       ]
     }
   }
