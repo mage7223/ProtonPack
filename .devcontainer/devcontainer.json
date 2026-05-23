@@ -1,5 +1,6 @@
 {
   "name": "ProtonPack Dev Container",
+//  "image":"hsun1031/devcontainer_platformio:latest",
   "build": {
     "dockerfile": "Dockerfile"
   },
@@ -10,7 +11,18 @@
         "ms-vscode.cpptools",
         "Wokwi.wokwi-vscode",
         "ms-azuretools.vscode-containers"
-      ]
+      ],
+      "settings": {
+            "platformio-ide.pioHomeServerHttpHost": "0.0.0.0",
+            "platformio-ide.pioHomeServerHttpPort": 8081,
+            "platformio-ide.disablePIOHomeStartup": true
+    },
     }
-  }
+  },
+  "onCreateCommand": "pio project init --ide vscode || true",
+  "postStartCommand": "pio home --port 8080 --host 0.0.0.0",
+  "forwardPorts": [
+          8080, 8081
+  ],
+  "postCreateCommand": "pio upgrade"
 }

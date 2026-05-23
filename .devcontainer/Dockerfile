@@ -1,14 +1,10 @@
-FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+FROM mcr.microsoft.com/devcontainers/python:3.11
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        build-essential \
-        python3 \
-        python3-pip \
-        python3-venv \
-        # Required by project task requirements.
-        jq \
-   # && python3 -m pip install --no-cache-dir --break-system-packages platformio \
-   # && ln -sf /usr/local/bin/pio /usr/local/bin/platformio \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN pip3 install -U platformio
+RUN pio upgrade
+RUN pio remote update || true
+
+RUN wget https://github.com/esp-rs/esp-web-flash-server/releases/download/v0.2.1/web-flash-x86_64-unknown-linux-gnu.zip && \
+    unzip web-flash-x86_64-unknown-linux-gnu.zip && \
+    mv web-flash /usr/local/bin/ && \
+    rm web-flash-x86_64-unknown-linux-gnu.zip
